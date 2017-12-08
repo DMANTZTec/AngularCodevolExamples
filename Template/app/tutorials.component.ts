@@ -8,11 +8,15 @@ import { Component } from '@angular/core';
         <p *ngSwitchWhen="'red'">red color is shown</p>
         <p *ngSwitchWhen="'blue'">blue color is shown</p>
         <p *ngSwitchDefault>Invalid color</p>
-    </div> `
+    </div> 
+    <ul>
+        <li *ngFor="let color of colors">{{color}}</li>
+    </ul>`
 })
 export class TutorialsComponent {
     public main = "hello hii tutorial";
     public showElement = false;
-    public   color = 'white';
+    public   color = 'red';
+    public colors =['red','green','blue'];
 
 }
