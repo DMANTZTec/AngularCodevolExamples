@@ -9,15 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var tutorials_component_1 = require('./tutorials.component');
 var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "<h1> Hello World from Joatmon</h1>\n    \n    <my-tutorials></my-tutorials>",
-            directives: [tutorials_component_1.TutorialsComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

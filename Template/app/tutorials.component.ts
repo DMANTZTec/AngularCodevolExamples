@@ -1,22 +1,15 @@
 import { Component } from '@angular/core';
 
+
 @Component({
     selector: 'my-tutorials',
-    template: `<h2> {{main}}</h2>
-    <p *ngIf= "showElement">showElement</p>
-    <div [ngSwitch]="color">
-        <p *ngSwitchWhen="'red'">red color is shown</p>
-        <p *ngSwitchWhen="'blue'">blue color is shown</p>
-        <p *ngSwitchDefault>Invalid color</p>
-    </div> 
-    <ul>
-        <li *ngFor="let color of colors">{{color}}</li>
-    </ul>`
+    template: `<h2>{{name}}</h2>
+    <h2>{{name | uppercase}}</h2>
+    <h2>{{name | lowercase}}</h2>`
+
 })
 export class TutorialsComponent {
-    public main = "hello hii tutorial";
-    public showElement = false;
-    public   color = 'red';
-    public colors =['red','green','blue'];
-
+name='The Joatman';
+    
 }
+        
