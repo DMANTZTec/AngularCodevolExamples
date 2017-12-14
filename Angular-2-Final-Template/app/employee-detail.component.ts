@@ -1,4 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, } from '@angular/core';
+import {EmployeeService} from './employee.service';
+
 
 @Component({
     selector: 'employee-detail',
@@ -7,6 +9,12 @@ import {Component} from '@angular/core';
         <li>{{employee.id}}.{{employee.name}} - {{employee.gender}}</li>
     </ul> `
 })
-export class EmployeeDetailComponent{
+export class EmployeeDetailComponent {
+    employee = [];
+    constructor(private _employeeService: EmployeeService){}
+    ngOnInit(){
+        this.employees = this._employeeService.getEmployees();
+    }
+    employees=[];
 
 }
