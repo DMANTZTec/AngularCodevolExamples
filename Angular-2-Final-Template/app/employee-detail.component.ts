@@ -10,11 +10,13 @@ import {EmployeeService} from './employee.service';
     </ul> `
 })
 export class EmployeeDetailComponent {
-    employee = [];
+    employees = [];
     constructor(private _employeeService: EmployeeService){}
     ngOnInit(){
-        this.employees = this._employeeService.getEmployees();
+        this.employees = this._employeeService.getEmployees()
+            .subscribe(resEmployeeData => this.employees = resEmployeeData);
+
     }
-    employees=[];
+
 
 }

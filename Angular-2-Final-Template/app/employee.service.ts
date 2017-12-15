@@ -1,13 +1,22 @@
-import {Injectable} from "@angular/core";
-@Injectable
+import {Injectable} from '@angular/core';
+import {Http,Response} from '@angular/http';
+import {Observable} from "rxjs/Observable";
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+import {error} from "util";
+
+@Injectable()
 export class EmployeeService {
+    private _url: string = "apidata/employeedata1.json"
+    constructor(private  _http: Http) {}
     getEmployees() {
-        return [
-            {"id": 1, "name": "shanthi", "gender": "Male"},
-            {"id": 2, "name": "shashi", "gender": "Male"},
-            {"id": 3, "name": "sravan", "gender": "Male"},
-            {"id": 4, "name": "vandana", "gender": "Female"},
-            {"id": 5, "name": "tejaswini", "gender": "Female"},
-        ]
+        return this._http.get(this._url)
+            .map((response:Response) => response.json())
+            .catch(_errorHandler);
     }
+_errorHandler(error: Response){
+        console.error(error);
+        return Observable.throw(error || "Service Error");
+}
 }
