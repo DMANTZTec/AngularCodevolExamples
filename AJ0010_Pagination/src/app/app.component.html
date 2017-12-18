@@ -1,0 +1,11 @@
+<div *ngFor = 'let lst of appList| paginate: {
+            itemsPerPage: 1, currentPage: p }'>
+  <ul>
+    <li>{{lst.ID}}</li>
+    <li>{{lst.Name}}</li>
+    <img [src] = 'lst.url'>
+  </ul>
+</div>
+<pagination-controls (pageChange) = "p = $event"></pagination-controls>
+
+
