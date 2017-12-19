@@ -4,7 +4,14 @@
     <div class="form-group">
         <label>Name</label>
         <input type="text"  #refName class="form-control" formControlName="name"><br/>
-        {{refName.className}}
+        <div *ngIf="userForm.controls['name'].hasError('required')" class="alert alert-danger">
+            Plaese enter name
+        </div>
+        <div *ngIf="userForm.controls['name'].hasError('minlength')" class="alert alert-danger">
+             Name should be more than 5 chars
+        </div><div *ngIf="userForm.controls['name'].hasError('maxlength')" class="alert alert-danger">
+        Name should no exceed 10 chars
+    </div>
     </div>
     <div class="form-group">
         <label>Email</label>

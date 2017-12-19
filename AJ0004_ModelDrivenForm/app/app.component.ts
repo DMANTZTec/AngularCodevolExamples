@@ -12,7 +12,7 @@ export class AppComponent {
     console.log(this.userForm.value);
   }
   userForm=new FormGroup({
-      name:new FormControl('',Validators.required),
+      name:new FormControl('teja',[Validators.required,Validators.minLength(5),Validators.maxLength(10)]),
       email:new FormControl(),
       address:new FormGroup({
       street:new FormControl(),
